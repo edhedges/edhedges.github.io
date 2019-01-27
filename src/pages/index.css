@@ -1,0 +1,33 @@
+/* .home_container {
+  padding: 0px 20px;
+} */
+
+.home_row {
+  display: block;
+  margin: 20px 0;
+}
+
+.home_col {
+  display: inline-block;
+  padding: 0 5px;
+  vertical-align: top;
+  width: 50%;
+}
+
+.home_col:first-child {
+  padding-left: 0;
+}
+.home_col:last-child {
+  padding-right: 0;
+}
+
+.home_col h2 {
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .home_col {
+    display: block;
+    width: 100%;
+  }
+}
