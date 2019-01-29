@@ -4,8 +4,21 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import resume from '../pdf/Resume.pdf'
 import './index.css'
+import PostLink from '../components/post-link'
 
-const IndexPage = () => (
+const getPosts = (edges, count) => {
+  const Posts = edges
+    .filter(edge => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
+    .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+
+  return <div>{Posts.slice(0, count)}</div>
+}
+
+const IndexPage = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <div>
@@ -20,7 +33,7 @@ const IndexPage = () => (
             <h2>About</h2>
             <hr />
             <p>
-              I am living a truly privileged life in{' '}
+              I am living a privileged life in{' '}
               <a href="https://www.gardnerkansas.gov/">Gardner, KS</a> with my
               beautiful wife Katie, my amazing daughter Nora Eve, my dogs Ellie
               and Maeby, and my two cats Theo and Lucy. I am employed by{' '}
@@ -47,8 +60,20 @@ const IndexPage = () => (
             </p>
           </div>
           <div className={'home_col'}>
-            <h2>Blog</h2>
+            <div>
+              <h2 style={{ display: 'inline-block' }}>Blog</h2>
+              <span
+                style={{
+                  display: 'inline-block',
+                  float: 'right',
+                }}
+              >
+                <a href="/blog">Archives</a>
+              </span>
+              <span style={{ clear: 'both' }} />
+            </div>
             <hr />
+            {getPosts(edges, 4)}
           </div>
         </div>
         <div className={'home_row'}>
@@ -126,3 +151,22 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            path
+            title
+            tags
+          }
+        }
+      }
+    }
+  }
+`

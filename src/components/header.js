@@ -50,10 +50,6 @@ const Header = ({ siteTitle }) => (
             <i className="fab fa-twitter" />
           </a>
         </li>
-        {/* TODO */}
-        {/* <li>
-          <a title="RSS Feed" className="rssicon" href="/atom.xml" />
-        </li> */}
       </ul>
       <br />
       <hr />

@@ -612,6 +612,9 @@ pre tt:after {
 }
 
 /* Styles from old website */
+.header_h1 {
+  text-align: center;
+}
 
 .social_list {
   display: inline-block;
