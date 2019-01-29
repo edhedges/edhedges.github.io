@@ -29,37 +29,32 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-      <ul
-        className="social_list"
-        style={{ display: 'inline-block', margin: 0, width: '50%' }}
-      >
-        <li className="githubicon">
-          <a
-            title="GitHub"
-            className="octoicon"
-            href="https://github.com/edhedges"
-            // style={{ bc }}
-          />
+      <ul className="social_list">
+        <li>
+          <a href="https://github.com/edhedges">
+            <i className="fab fa-github" />
+          </a>
         </li>
         <li>
-          <a
-            title="StackExchange"
-            className="stackexchangeicon"
-            href="http://stackexchange.com/users/1193099/edhedges?tab=accounts"
-          />
+          <a href="https://stackoverflow.com/users/1165441/edhedges">
+            <i className="fab fa-stack-overflow" />
+          </a>
         </li>
         <li>
-          <a
-            title="LinkedIn"
-            className="linkedinicon"
-            href="http://www.linkedin.com/pub/eddie-hedges/3b/167/168"
-          />
+          <a href="https://www.linkedin.com/in/eddiehedges">
+            <i className="fab fa-linkedin-in" />
+          </a>
         </li>
+        <li>
+          <a href="https://twitter.com/Dwedard">
+            <i className="fab fa-twitter" />
+          </a>
+        </li>
+        {/* TODO */}
         {/* <li>
           <a title="RSS Feed" className="rssicon" href="/atom.xml" />
         </li> */}
       </ul>
-      <br />
       <br />
       <hr />
     </div>

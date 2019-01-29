@@ -2,7 +2,7 @@ import React from 'react'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-
+import resume from '../pdf/Resume.pdf'
 import './index.css'
 
 const IndexPage = () => (
@@ -20,23 +20,23 @@ const IndexPage = () => (
             <h2>About</h2>
             <hr />
             <p>
-              I am living a truly fortunate life in{' '}
-              <a href="http://www.gardnerkansas.gov/">Gardner, KS</a> with my
+              I am living a truly privileged life in{' '}
+              <a href="https://www.gardnerkansas.gov/">Gardner, KS</a> with my
               beautiful wife Katie, my amazing daughter Nora Eve, my dogs Ellie
-              and Maeby, and my two cats Theo and Lucy. I'm employed by{' '}
-              <a href="https://bloom.co/">Bloom</a> as a Full Stack Software
-              Developer where we're building a decentralized identity and credit
+              and Maeby, and my two cats Theo and Lucy. I am employed by{' '}
+              <a href="https://bloom.co/">Bloom</a> as a Full stack software
+              seveloper where we're building a decentralized identity and credit
               protocol on top of Ethereum.
             </p>
             <p>
               I graduated from{' '}
-              <a href="http://www.k-state.edu/">Kansas State University</a> in
+              <a href="https://www.k-state.edu/">Kansas State University</a> in
               December 2012 with a bachelor's degree in{' '}
-              <a href="http://www.cis.ksu.edu/programs/undergrad/is">
+              <a href="https://www.k-state.edu/careercenter/students/exploration/majorin/infosys.html">
                 Information Systems
               </a>{' '}
               and a minor in{' '}
-              <a href="http://catalog.k-state.edu/preview_program.php?poid=3379&amp;catoid=13">
+              <a href="https://cba.k-state.edu/academics/undergraduate/business-minor.html">
                 Business
               </a>
               .
@@ -87,27 +87,16 @@ const IndexPage = () => (
             <hr />
             <h3>Qualifications</h3>
             <p>
-              <a href="/pdf/Resume.pdf">Résumé</a>
+              <a href={resume}>Résumé</a>
             </p>
-            <h3>Current Work</h3>
-            <p>Products for the next generation of 911.</p>
-            <h3>Side projects</h3>
-            <ul>
-              <li>
-                Financier - An internal website I developed that scrapes a
-                number of websites to pull back my financial data (bank account
-                balances, credit card debt, and event student loan debt).
-                Financier is able to log in to websites with username and
-                password credentials and can even answer security questions if
-                required. The next step is to break past two factor
-                authentication!
-              </li>
-              <li>
-                <a href="/pensieve/">Pensieve</a> - A magical memory repository
-              </li>
-            </ul>
             <h3>Past Work</h3>
             <ul>
+              <li>
+                Full stack development at{' '}
+                <a href="https://911datamaster.com/">911 Datamaster, Inc.</a>{' '}
+                focusing on{' '}
+                <a href="https://911datamaster.com/datanexus/">DataNexus</a>.
+              </li>
               <li>
                 Backend services and internal tools/applications related to
                 various products including{' '}

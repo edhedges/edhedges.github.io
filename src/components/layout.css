@@ -202,7 +202,8 @@ html {
 }
 body {
   color: #273640;
-  font-weight: normal;
+  font-weight: 400;
+  font-size: 18px;
   word-wrap: break-word;
   font-kerning: normal;
   -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
@@ -613,9 +614,10 @@ pre tt:after {
 /* Styles from old website */
 
 .social_list {
+  display: inline-block;
   list-style-type: none;
   height: 35px;
-  width: 275px;
+  width: 50%;
   padding: 0px 0px 0px 0px;
   margin: 10px auto;
   text-align: center;
@@ -624,8 +626,12 @@ pre tt:after {
 
 .social_list li {
   display: inline;
-  margin: 0px 3px 0px 3px;
+  margin: 0px 8px 0px 8px;
   padding: 0 0 0 0;
+}
+
+.social_list li a i {
+  font-size: 28px;
 }
 
 .arsenal_list li {
@@ -633,63 +639,12 @@ pre tt:after {
   margin: 0px 3px 0px 3px;
 }
 
-.social_list li a {
-  background-image: url(../images/social.png);
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
-.social_list li a.octoicon {
-  background-position: 0 0;
-  width: 32px;
-  height: 32px;
-}
-
-.social_list li a.stackexchangeicon {
-  background-position: -35px 0;
-  width: 32px;
-  height: 32px;
-}
-
-.social_list li a.linkedinicon {
-  background-position: -69px 0;
-  width: 32px;
-  height: 32px;
-}
-
-.social_list li a.rssicon {
-  background-position: -103px 0;
-  width: 32px;
-  height: 32px;
-}
-
-.social_list .githubicon {
-  display: none;
-}
-.forkme {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 0;
-}
-@media only screen and (min-width: 1150px) {
-  .forkme {
-    display: block;
-  }
-}
-
-@media only screen and (max-width: 1149px) {
-  .social_list .githubicon {
-    display: inline;
-  }
-}
-
 @media only screen and (max-width: 500px) {
   .header_h1,
   .social_list {
     display: block !important;
     margin: 10px auto;
+    margin-bottom: 0;
     text-align: center;
     width: 100% !important;
   }

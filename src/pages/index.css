@@ -9,7 +9,7 @@
 
 .home_col {
   display: inline-block;
-  padding: 0 5px;
+  padding: 0 10px;
   vertical-align: top;
   width: 50%;
 }
@@ -28,6 +28,7 @@
 @media only screen and (max-width: 768px) {
   .home_col {
     display: block;
+    padding: 0 5px !important;
     width: 100%;
   }
 }
