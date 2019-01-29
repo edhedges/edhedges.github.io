@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: '/edhedges.github.io',
   siteMetadata: {
     title: `Eddie Hedges`,
     description: `Eddie Hedges is a software developer that enjoys both front and back end development. This includes markup, styling, user interface, functionality, and data store. This website will have information about programming, web development and design, .NET, python, javascript, typescript, html, css, sass, open source, and possibly some health/nutrition information.`,
