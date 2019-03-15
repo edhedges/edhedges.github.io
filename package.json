@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "eddie-hedges-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Personal website of Eddie Hedges powered by Gatsby and GitHub pages.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Eddie Hedges <eddiehedges@gmail.com>",
   "dependencies": {
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.20",
@@ -21,7 +21,8 @@
     "react-helmet": "^5.2.0"
   },
   "keywords": [
-    "gatsby"
+    "Eddie",
+    "Hedges"
   ],
   "license": "MIT",
   "scripts": {
@@ -38,9 +39,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/edhedges/edhedges.github.io"
   }
 }

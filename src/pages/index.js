@@ -20,7 +20,7 @@ const IndexPage = ({
   },
 }) => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" keywords={[`Eddie`, `Hedges`]} />
     <div>
       <div style={{ padding: `0 0 2rem 0` }}>
         Welcome to my personal website! I'm always open to working with like
@@ -36,9 +36,9 @@ const IndexPage = ({
               I am living a privileged life in{' '}
               <a href="https://www.gardnerkansas.gov/">Gardner, KS</a> with my
               beautiful wife Katie, my amazing daughter Nora Eve, my dogs Ellie
-              and Maeby, and my two cats Theo and Lucy. I am employed by{' '}
-              <a href="https://bloom.co/">Bloom</a> as a Full stack software
-              seveloper where we're building a decentralized identity and credit
+              and Maeby, and my cats Theo and Lucy. I am employed by{' '}
+              <a href="https://bloom.co/">Bloom</a> as a full stack software
+              developer where we're building a decentralized identity and credit
               protocol on top of Ethereum.
             </p>
             <p>
