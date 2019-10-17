@@ -45,11 +45,6 @@ const Header = ({ siteTitle }) => (
             <i className="fab fa-linkedin-in" />
           </a>
         </li>
-        <li>
-          <a href="https://twitter.com/Dwedard">
-            <i className="fab fa-twitter" />
-          </a>
-        </li>
       </ul>
       <br />
       <hr />
