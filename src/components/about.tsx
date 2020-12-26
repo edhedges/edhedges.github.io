@@ -6,13 +6,12 @@ const About = () => {
       <h2>About</h2>
       <hr />
       <p>
-        I'm a Kansas transplant living a privileged life in{' '}
-        <a href="https://www.rathdrum.org">Rathdrum, ID</a> with my beautiful
-        wife Katie, amazing daughter Nora, handsome son Lennox, my dogs Ellie
-        and Maeby, and my cats Theo and Lucy. I'm employed by{' '}
-        <a href="https://bloom.co/">Bloom</a> as a Senior Full Stack Engineer
-        where we're building decentralized identity and credit protocols, and
-        products on top of Ethereum.
+        I'm a Kansas transplant living life in northern Idaho with my wife and
+        children. I'm employed by{' '}
+        <a href="https://bloom.co" target={'_blank'}>
+          Bloom
+        </a>{' '}
+        where we're focused on building the future of digital identity.
       </p>
       <p>
         I graduated from{' '}
