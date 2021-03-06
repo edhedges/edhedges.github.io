@@ -652,3 +652,18 @@ pre tt:after {
     width: 100% !important;
   }
 }
+
+/* Blog Styles */
+.blog-post-title,
+.blog-post-date {
+  display: inline-block;
+}
+
+.blog-post-title {
+  margin-right: 8px;
+}
+.blog-post-date {
+  color: #bbb;
+  font-size: 1.1rem;
+  margin-left: 8px;
+}
