@@ -29,8 +29,8 @@ module.exports = {
         name: `Eddie Hedges`,
         short_name: `Eddie`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         display: `minimal-ui`,
         icon: `src/favicon.png`, // This path is relative to the root of the site.
       },

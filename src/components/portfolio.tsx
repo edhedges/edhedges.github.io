@@ -13,6 +13,12 @@ const Portfolio = () => {
       <h3>Past Work</h3>
       <ul>
         <li>
+          Full stack development and later Director of Engineering - Consumer App at <a href="https://bloom.co">Bloom</a>.
+          I designed and built platform features with a focus on third party integrations, open source libraries, and consumer mobile app apis.
+          I went on to lead the consumer mobile app team as we shipped native iOS and Android apps that gave users the ability to create decentralized
+          identities, claim and share verifiable credentials, and enroll in credit and hack monitoring products.
+        </li>
+        <li>
           Full stack development at{' '}
           <a href="https://911datamaster.com/">911 Datamaster, Inc.</a> focusing
           on <a href="https://911datamaster.com/datanexus/">DataNexus</a>.

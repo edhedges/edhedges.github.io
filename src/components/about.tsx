@@ -6,12 +6,12 @@ const About = () => {
       <h2>About</h2>
       <hr />
       <p>
-        I'm a Kansas transplant living life in northern Idaho with my wife and
-        children. I'm employed by{' '}
-        <a href="https://bloom.co" target={'_blank'}>
-          Bloom
+        I'm living life in KCMO with my wife and
+        kids. Currently building and leading platform engineering efforts at {' '}
+        <a href="https://carputty.com" target={'_blank'}>
+          Carputty
         </a>{' '}
-        where we're focused on building the future of digital identity.
+        where we're re-engineering auto finance.
       </p>
       <p>
         I graduated from{' '}

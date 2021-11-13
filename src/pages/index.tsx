@@ -17,11 +17,9 @@ const IndexPage = ({
     <SEO title="Home" keywords={[`Eddie`, `Hedges`]} />
     <div>
       <div style={{ padding: `0 0 2rem 0` }}>
-        Welcome to my personal website! I'm always open to meeting people that
-        are passionate about technology. I'm specifically interested in
-        software, economics, and love building in general. If that sounds
-        interesting to you <a href="mailto:eddiehedges@gmail.com">let's chat</a>
-        .
+        Hi 👋  and welcome to my website! I'm passionate about
+        family, software, economics, and startups. If that sounds
+        interesting to you <a href="mailto:eddiehedges@gmail.com">let's chat</a>.
       </div>
       <div className={'home_container'}>
         <div className={'home_row'}>
