@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Eddie Hedges <eddiehedges@gmail.com>",
   "dependencies": {
+    "@babel/core": "^7.27.1",
     "gatsby": "^2.32.9",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-favicon": "^3.1.6",
