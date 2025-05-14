@@ -7,7 +7,7 @@ const About = () => {
       <hr />
       <p>
         I'm living life in KCMO with my wife and
-        kids. Currently building and leading platform engineering efforts at {' '}
+        kids. Currently building and leading engineering at {' '}
         <a href="https://carputty.com" target={'_blank'}>
           Carputty
         </a>{' '}
@@ -28,7 +28,7 @@ const About = () => {
       </p>
       <p>
         I truly enjoy my life, my line of work, and am always looking for ways
-        to challenge, grow, and improve.
+        to be challenged, grow, and improve.
       </p>
     </div>
   )
