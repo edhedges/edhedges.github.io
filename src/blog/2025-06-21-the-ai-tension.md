@@ -5,11 +5,11 @@ title: 'The AI Tension'
 tags: ['AI', 'Software', 'OpenAI', 'Apple', 'Anthropic', 'Claude']
 ---
 
-I have worked in the sofware professionally for around 12 years now. I have seen many changes to the software industry throughout that time, but today's pace of change and improvement is unparalleled. I remember using ChatGPT for the first time in late 2022. I was on Christmas break and had some time to try it. I downloaded the app and was immediately impressed with what I was experiencing. How is it doing this? It felt like magic and my mind was racing with possibilities, questions, and to be honest concerns.
+I have worked in sofware for a little over 12 years, experienced many changes to the industry, but the one we're undergoing now feels uniquely consequential. I remember using ChatGPT for the first time in late 2022. I was on Christmas break and had some time to try it. I downloaded the app and was shocked and impressed with what I was experiencing. How is it doing this? It felt like magic and my mind was racing with possibilities, questions, and to be honest concerns.
 
 Within a half a year of experiencing LLMs, I started using GitHub Copilot and it has been a fantastic tool for speeding up my development. It allowed me to stay in the flow of writing code, while predicting and inferring from context what I wanted next. This was a game changer and has only gotten better and expanded over time.
 
-Recently I've been experimenting with [Claude Code by Anthropic](https://www.anthropic.com/claude-code) and have been blown away at its capabilities, customization, and the overall experience of programming primarily in natural language. This feels different in a big way. I'm just getting started and I'm excited to see where I can take it and where it'll take me.
+Recently, I've been experimenting with [Claude Code by Anthropic](https://www.anthropic.com/claude-code) and have been blown away at its capabilities, customization, and the overall experience of programming primarily in natural language. This feels different in a big way. I'm just getting started and I'm excited to see where I can take it and where it'll take me.
 
 Now to the point of my post... I give these topics quite a bit of thought and I recently read a couple posts that got me wondering about what the future holds. I prompted Claude with Extended Thinking and Research enabled and it generated what I found to be a pretty fascinating read that I wanted to share with others. The prompt and research Claude produced are below. I hope you find it as interesting as I did.
 
