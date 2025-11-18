@@ -1,12 +1,22 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
+interface BlogPostData {
+  markdownRemark: {
+    html: string
+    frontmatter: {
+      date: string
+      path: string
+      title: string
+      tags: string[]
+    }
+  }
+}
+
+const BlogTemplate: React.FC<PageProps<BlogPostData>> = ({ data }) => {
+  const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
 
   return (
@@ -34,8 +44,10 @@ export default function Template({
   )
 }
 
+export default BlogTemplate
+
 export const pageQuery = graphql`
-  query($path: String!) {
+  query BlogPostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
