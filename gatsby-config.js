@@ -3,9 +3,9 @@ module.exports = {
     title: `Eddie Hedges`,
     description: `Eddie Hedges is a software developer that enjoys both front and back end development. This includes markup, styling, user interface, functionality, and data store. This website will have information about programming, web development and design, .NET, python, javascript, typescript, html, css, sass, open source, and possibly some health/nutrition information.`,
     author: `Eddie Hedges`,
+    siteUrl: `https://eddiehedges.dev`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,6 +23,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -32,13 +33,8 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#fff`,
         display: `minimal-ui`,
-        icon: `src/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/favicon.png`,
       },
     },
-    `gatsby-plugin-favicon`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
-    `gatsby-plugin-typescript`,
   ],
 }
