@@ -36,5 +36,15 @@ module.exports = {
         icon: `src/favicon.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-decap-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        enableIdentityWidget: true,
+        publicPath: `admin`,
+        htmlTitle: `Content Manager`,
+        htmlFavicon: `src/favicon.png`,
+      },
+    },
   ],
 }
