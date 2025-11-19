@@ -33,22 +33,24 @@ jobs:
         id: deploy
         continue-on-error: true
         run: |
-          npm install -g surge
-
           # Generate unique preview URL
           PREVIEW_URL="eddie-hedges-pr-${{ github.event.pull_request.number }}.surge.sh"
 
-          # Deploy to Surge
+          # Deploy to Surge (requires SURGE_TOKEN secret)
           if [ -n "${{ secrets.SURGE_TOKEN }}" ]; then
-            # Use token if available
+            echo "✓ SURGE_TOKEN configured - deploying to Surge.sh..."
+            npm install -g surge
             surge ./public $PREVIEW_URL --token ${{ secrets.SURGE_TOKEN }}
+            echo "preview_url=https://$PREVIEW_URL" >> $GITHUB_OUTPUT
+            echo "deploy_success=true" >> $GITHUB_OUTPUT
           else
-            # Deploy without token (anonymous, but works for public sites)
-            surge ./public $PREVIEW_URL
+            echo "✗ SURGE_TOKEN not configured - skipping Surge deployment"
+            echo "  To enable preview deployments:"
+            echo "  1. Sign up at https://surge.sh"
+            echo "  2. Run: npm install -g surge && surge token"
+            echo "  3. Add token to GitHub Secrets as SURGE_TOKEN"
+            echo "deploy_success=false" >> $GITHUB_OUTPUT
           fi
-
-          echo "preview_url=https://$PREVIEW_URL" >> $GITHUB_OUTPUT
-          echo "deploy_success=true" >> $GITHUB_OUTPUT
 
       - name: Comment PR with preview URL
         if: steps.deploy.outputs.deploy_success == 'true'
@@ -109,31 +111,37 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const body = `## ℹ️ Preview Build Complete
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = `## ℹ️ Build Successful - Preview Deployment Skipped
 
-            The site was built successfully, but automatic Surge.sh deployment is not available.
+            ✅ **Build completed successfully!** The site is ready, but Surge.sh preview deployment is not configured.
 
-            ### Download Build Artifacts
+            ### 📦 Download Build Artifacts
 
-            You can download the build artifacts from the "Actions" tab to test locally, or set up one of these free preview options:
+            You can download and test the built site locally:
+            1. Go to the [workflow run](${runUrl})
+            2. Scroll to "Artifacts" section at the bottom
+            3. Download \`preview-build-pr-${context.issue.number}\`
+            4. Extract and serve locally:
+               \`\`\`bash
+               npx serve public/
+               \`\`\`
 
-            1. **Cloudflare Pages** (Recommended)
-               - Unlimited builds & bandwidth
-               - 5-minute setup
-               - See PREVIEW_DEPLOYMENTS.md
+            ### 🚀 Enable Automatic Preview Deployments
 
-            2. **Netlify**
-               - 300 build minutes/month
-               - Built-in CMS OAuth
-               - See PREVIEW_DEPLOYMENTS.md
+            **Option 1: Surge.sh** (2 minutes)
+            1. Sign up at https://surge.sh/
+            2. Run: \`npm install -g surge && surge token\`
+            3. Add token to GitHub: **Settings** → **Secrets and variables** → **Actions** → **New repository secret**
+               - Name: \`SURGE_TOKEN\`
+               - Value: [your token]
 
-            ### Build Details
-            - ✅ Dependencies installed
-            - ✅ TypeScript compilation passed
-            - ✅ Gatsby build completed
-            - 📦 Build artifacts available for 7 days
+            **Option 2: Cloudflare Pages or Netlify**
+            See \`PREVIEW_DEPLOYMENTS.md\` for full setup instructions.
 
-            See **PREVIEW_DEPLOYMENTS.md** for setup instructions.`;
+            ---
+
+            Build artifacts available for 7 days.`;
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
