@@ -1,0 +1,25 @@
+# Cloudflare Pages Configuration
+# Free preview deployments with unlimited builds and bandwidth
+
+# Build configuration
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--version"
+
+# Production branch
+[env.production]
+  NODE_ENV = "production"
+
+# Preview branches (PRs)
+[env.preview]
+  NODE_ENV = "development"
+
+# Build caching
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

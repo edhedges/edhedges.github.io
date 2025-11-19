@@ -61,6 +61,12 @@ This PR modernizes the entire text stack while maintaining identical visual outp
 - Added .npmrc for automatic peer dependency handling
 - Documented CMS choice (Netlify CMS vs Decap CMS)
 
+### Phase 6: Preview Deployments (NEW)
+- Added automated Surge.sh preview deployment via GitHub Actions
+- Added Cloudflare Pages configuration (unlimited free tier)
+- Created comprehensive PREVIEW_DEPLOYMENTS.md guide
+- Preview URL automatically posted on PR
+
 ## 🔍 Testing & Verification
 
 ### Automated Checks
@@ -76,16 +82,41 @@ This PR modernizes the entire text stack while maintaining identical visual outp
 - [ ] CMS admin interface loads at `/admin`
 - [ ] Can create/edit posts via CMS
 
-### Preview Deployment
-This PR includes Netlify configuration for automatic deploy previews. Once the PR is opened, you can test the full site at the preview URL before merging.
+### Preview Deployment ✨ NEW!
+
+**Three free options** for previewing changes:
+
+1. **Surge.sh** (Automatic - Zero Setup!)
+   - ✅ Already configured in this PR
+   - ✅ GitHub Actions deploys on every PR update
+   - ✅ Preview URL posted in PR comments
+   - ✅ Format: `eddie-hedges-pr-{NUMBER}.surge.sh`
+   - ✅ **No account needed - works immediately!**
+
+2. **Cloudflare Pages** (Best Long-Term)
+   - ✅ Unlimited builds & bandwidth
+   - ✅ Config file included (`wrangler.toml`)
+   - ⚙️ 5-minute setup via Cloudflare dashboard
+
+3. **Netlify** (CMS OAuth Bonus)
+   - ✅ Config file included (`netlify.toml`)
+   - ✅ Built-in CMS authentication
+   - ⚙️ 5-minute setup via Netlify dashboard
+
+**See PREVIEW_DEPLOYMENTS.md for detailed setup instructions.**
+
+**This PR will automatically deploy to Surge.sh** when opened, giving you a live preview URL to test before merging!
 
 ## 📚 Documentation
 
 ### New Files
 - **CMS_SETUP.md** - Complete guide for mobile publishing setup
 - **UPGRADE_GUIDE.md** - Detailed technical changes and migration guide
+- **PREVIEW_DEPLOYMENTS.md** - Guide for free preview deployment options
 - **netlify.toml** - Netlify deploy preview configuration
+- **wrangler.toml** - Cloudflare Pages configuration
 - **.github/workflows/ci.yml** - Automated testing workflow
+- **.github/workflows/preview.yml** - Automated Surge.sh preview deployment
 - **tsconfig.json** - TypeScript configuration
 - **.npmrc** - NPM configuration for peer dependencies
 
