@@ -17,6 +17,21 @@ interface BlogPostData {
 
 const BlogTemplate: React.FC<PageProps<BlogPostData>> = ({ data }) => {
   const { markdownRemark } = data
+
+  // Handle missing data gracefully
+  if (!markdownRemark) {
+    return (
+      <Layout>
+        <SEO title="Post Not Found" keywords={[]} />
+        <div>
+          <h1>Post Not Found</h1>
+          <p>Sorry, this blog post could not be found.</p>
+          <p><a href="/blog">Return to blog archives</a></p>
+        </div>
+      </Layout>
+    )
+  }
+
   const { frontmatter, html } = markdownRemark
 
   return (
