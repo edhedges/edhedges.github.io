@@ -5,8 +5,6 @@
   "version": "0.2.0",
   "author": "Eddie Hedges <eddiehedges@gmail.com>",
   "dependencies": {
-    "ajv": "^6.12.6",
-    "ajv-keywords": "^3.5.2",
     "gatsby": "^5.13.7",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
@@ -49,6 +47,7 @@
     "node": ">=20.0.0"
   },
   "overrides": {
-    "schema-utils": "^3.3.0"
+    "terser-webpack-plugin": "~5.2.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.11"
   }
 }
