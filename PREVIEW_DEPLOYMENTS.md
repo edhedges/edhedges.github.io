@@ -1,18 +1,16 @@
 # Preview Deployments with Cloudflare Pages
 
-This repository is configured to use **Cloudflare Pages** for automatic preview deployments on every pull request.
+This repository uses **Cloudflare Pages** for automatic preview deployments on every pull request.
 
 ---
 
-## ✅ Current Setup: Cloudflare Pages
-
-**Status:** Active and configured
+## ✅ How It Works
 
 Cloudflare Pages automatically creates preview deployments for:
 - Every push to a non-production branch
 - Every pull request to the `dev` branch
 
-### How It Works
+### Automatic Process
 
 1. **Push to any branch** (other than `dev`)
 2. **Cloudflare automatically builds** your site
@@ -20,29 +18,44 @@ Cloudflare Pages automatically creates preview deployments for:
 4. **Cloudflare comments on your PR** with the preview link
 5. **Updates automatically** on every new commit
 
-### Finding Your Preview URL
+---
 
-**Option 1: Cloudflare Dashboard**
+## 🔍 Finding Your Preview URL
+
+### Option 1: Cloudflare Dashboard
 1. Go to https://dash.cloudflare.com
 2. Navigate to **Workers & Pages** → Your site
 3. Click **Deployments** tab
 4. Find your branch/PR deployment
 
-**Option 2: GitHub PR**
+### Option 2: GitHub PR
 - Cloudflare automatically comments on PRs with preview URLs
 - Check the PR conversation for the deployment comment
 
-### Configuration
+---
+
+## ⚙️ Configuration
 
 The `wrangler.toml` file in this repository configures:
-- Build command: `npm run build`
-- Build output directory: `public`
-- Node version: 20
-- Environment-specific settings
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[env.production]
+  NODE_ENV = "production"
+
+[env.preview]
+  NODE_ENV = "development"
+```
 
 ---
 
-## 🎯 Benefits of Cloudflare Pages
+## 🎯 Benefits
 
 - ✅ **Truly unlimited** - No build minute limits, no bandwidth limits
 - ✅ **Automatic PR previews** - Every PR gets a unique URL
@@ -50,47 +63,7 @@ The `wrangler.toml` file in this repository configures:
 - ✅ **Custom headers support** - PDFs render inline in browser
 - ✅ **Zero maintenance** - Fully managed by Cloudflare
 - ✅ **Free forever** - No credit card required
-
----
-
-## 🌐 Alternative: Netlify
-
-If you need Netlify-specific features (like built-in CMS OAuth), you can also use Netlify:
-
-### Setup (5 minutes)
-
-1. **Connect Repository**
-   - Go to https://app.netlify.com/signup (free account)
-   - Click "Add new site" → "Import from Git"
-   - Select your GitHub repository
-
-2. **Configure Build**
-   - Build command: `npm run build`
-   - Publish directory: `public`
-   - Click "Deploy"
-
-3. **Enable Deploy Previews**
-   - Go to Site Settings → Build & Deploy
-   - Deploy contexts → Deploy Previews
-   - Enable "Any pull request against your production branch"
-
-**Configuration file:** `netlify.toml` (already included)
-
----
-
-## 📊 Comparison
-
-| Feature | Cloudflare Pages (Active) | Netlify |
-|---------|--------------------------|---------|
-| **Build Minutes** | ✅ Unlimited | 300/month |
-| **Bandwidth** | ✅ Unlimited | 100GB/month |
-| **PR Previews** | ✅ Automatic | ✅ Automatic |
-| **Setup Time** | ✅ Done | 5 min |
-| **PR Comments** | ✅ Built-in | ✅ Built-in |
-| **Custom Headers** | ✅ Yes | ✅ Yes |
-| **Custom Domains** | ✅ Yes | ✅ Yes |
-| **HTTPS** | ✅ Automatic | ✅ Automatic |
-| **CMS OAuth** | ⚠️ Manual | ✅ Built-in |
+- ✅ **No GitHub Actions needed** - Cloudflare handles everything
 
 ---
 
@@ -140,7 +113,7 @@ Once deployed, test these critical areas:
 
 ## 🔧 Troubleshooting
 
-### Cloudflare Pages Build Fails
+### Build Fails
 
 **"Module not found"**
 - Check Node version is set to 20 in Cloudflare dashboard
@@ -152,22 +125,17 @@ Once deployed, test these critical areas:
 - Check for infinite loops in gatsby-node.js
 - Review build logs for specific errors
 
-**Preview not updating**
+### Preview Not Updating
+
 - Clear Cloudflare cache in dashboard
 - Force rebuild from Cloudflare dashboard
 - Check GitHub webhook is configured correctly
 
-### Netlify Build Fails
+### Preview URL Not Found
 
-**"Build exceeded limit"**
-- Free tier: 300 minutes/month
-- Check usage in Netlify dashboard
-- Consider using Cloudflare Pages (unlimited)
-
-**"Module not found"**
-- Verify all dependencies in `package.json`
-- Check Node version in Netlify dashboard
-- Review build logs for specific errors
+- Wait 2-3 minutes for first deployment
+- Check Cloudflare dashboard for build status
+- Verify branch name doesn't conflict with production
 
 ---
 
@@ -204,14 +172,16 @@ Preview URLs are public - share for review:
 
 ## 🆘 Need Help?
 
-### Cloudflare Pages
+**Cloudflare Pages Documentation**
 - Docs: https://developers.cloudflare.com/pages
 - Dashboard: https://dash.cloudflare.com
 - Build logs: Available in deployment details
 
-### Netlify
-- Docs: https://docs.netlify.com
-- Dashboard: https://app.netlify.com
+**Common Issues**
+- Build logs show detailed error messages
+- Check Node version matches `.nvmrc` (20)
+- Verify all dependencies are in `package.json`
+- Clear cache and retry if needed
 
 ---
 
@@ -222,6 +192,7 @@ Preview URLs are public - share for review:
 - ✅ Preview deployments happen automatically on every PR
 - ✅ Unlimited builds and bandwidth
 - ✅ Custom headers enabled (PDFs render inline)
+- ✅ No maintenance required
 
 **How to Use:**
 1. Push to any branch or open a PR
@@ -230,6 +201,6 @@ Preview URLs are public - share for review:
 4. Test your changes before merging
 
 **Production Deployment:**
-- Production site deploys from `dev` branch
-- Manual deployment: `npm run deploy` (pushes to `master` branch)
-- GitHub Pages serves production site from `master` branch
+- Production site deploys from `dev` branch to Cloudflare Pages
+- Cloudflare automatically deploys on push to `dev`
+- Your custom domain points to Cloudflare Pages
