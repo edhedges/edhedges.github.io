@@ -2,25 +2,19 @@
   "name": "eddie-hedges-website",
   "private": true,
   "description": "Personal website of Eddie Hedges powered by Gatsby and GitHub pages.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Eddie Hedges <eddiehedges@gmail.com>",
   "dependencies": {
-    "@babel/core": "^7.27.1",
-    "gatsby": "^2.32.9",
-    "gatsby-image": "^2.11.0",
-    "gatsby-plugin-favicon": "^3.1.6",
-    "gatsby-plugin-manifest": "^2.12.1",
-    "gatsby-plugin-offline": "^2.2.10",
-    "gatsby-plugin-react-helmet": "^3.10.0",
-    "gatsby-plugin-sharp": "^2.14.3",
-    "gatsby-plugin-typescript": "^2.12.1",
-    "gatsby-source-filesystem": "^2.11.1",
-    "gatsby-transformer-remark": "^2.16.1",
-    "gatsby-transformer-sharp": "^2.12.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^5.2.1"
+    "gatsby": "^5.13.7",
+    "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-remark": "^6.13.1",
+    "gatsby-transformer-sharp": "^5.13.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet": "^6.1.0"
   },
   "keywords": [
     "Eddie",
@@ -32,18 +26,28 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
+    "clean": "gatsby clean",
+    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^12.20.4",
-    "@types/react": "^16.14.4",
-    "@types/react-dom": "^16.9.11",
-    "gh-pages": "^2.2.0",
-    "prettier": "^1.19.1"
+    "@types/node": "^20.14.15",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "gh-pages": "^6.1.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/edhedges/edhedges.github.io"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "overrides": {
+    "terser-webpack-plugin": "~5.2.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.11"
   }
 }
