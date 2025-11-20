@@ -62,10 +62,10 @@ This PR modernizes the entire text stack while maintaining identical visual outp
 - Documented CMS choice (Netlify CMS vs Decap CMS)
 
 ### Phase 6: Preview Deployments (NEW)
-- Added automated Surge.sh preview deployment via GitHub Actions
-- Added Cloudflare Pages configuration (unlimited free tier)
+- Added Cloudflare Pages configuration (unlimited free tier, active)
 - Created comprehensive PREVIEW_DEPLOYMENTS.md guide
-- Preview URL automatically posted on PR
+- Preview URL automatically posted on PR by Cloudflare
+- Custom headers support for inline PDF rendering
 
 ## 🔍 Testing & Verification
 
@@ -84,41 +84,35 @@ This PR modernizes the entire text stack while maintaining identical visual outp
 
 ### Preview Deployment ✨ NEW!
 
-**Three free options** for previewing changes:
+**Cloudflare Pages is configured and active!**
 
-1. **Surge.sh** (Automatic - Zero Setup!)
-   - ✅ Already configured in this PR
-   - ✅ GitHub Actions deploys on every PR update
-   - ✅ Preview URL posted in PR comments
-   - ✅ Format: `eddie-hedges-pr-{NUMBER}.surge.sh`
-   - ✅ **No account needed - works immediately!**
+- ✅ **Unlimited** builds & bandwidth (free forever)
+- ✅ **Automatic** preview deployments on every PR
+- ✅ **Fast** global CDN with edge caching
+- ✅ **Custom headers** support (PDFs render inline)
+- ✅ **Preview URL** automatically posted by Cloudflare bot
+- ✅ **Format**: `https://<commit-hash>.<site-name>.pages.dev`
 
-2. **Cloudflare Pages** (Best Long-Term)
-   - ✅ Unlimited builds & bandwidth
-   - ✅ Config file included (`wrangler.toml`)
-   - ⚙️ 5-minute setup via Cloudflare dashboard
+**Alternative: Netlify** (if CMS OAuth needed)
+- ✅ Config file included (`netlify.toml`)
+- ✅ Built-in CMS authentication
+- ⚙️ 5-minute setup via Netlify dashboard
 
-3. **Netlify** (CMS OAuth Bonus)
-   - ✅ Config file included (`netlify.toml`)
-   - ✅ Built-in CMS authentication
-   - ⚙️ 5-minute setup via Netlify dashboard
+**See PREVIEW_DEPLOYMENTS.md for detailed information.**
 
-**See PREVIEW_DEPLOYMENTS.md for detailed setup instructions.**
-
-**This PR will automatically deploy to Surge.sh** when opened, giving you a live preview URL to test before merging!
+**This PR will automatically deploy to Cloudflare Pages** when pushed, giving you a live preview URL to test before merging!
 
 ## 📚 Documentation
 
 ### New Files
 - **CMS_SETUP.md** - Complete guide for mobile publishing setup
 - **UPGRADE_GUIDE.md** - Detailed technical changes and migration guide
-- **PREVIEW_DEPLOYMENTS.md** - Guide for free preview deployment options
-- **netlify.toml** - Netlify deploy preview configuration
-- **wrangler.toml** - Cloudflare Pages configuration
-- **.github/workflows/ci.yml** - Automated testing workflow
-- **.github/workflows/preview.yml** - Automated Surge.sh preview deployment
+- **PREVIEW_DEPLOYMENTS.md** - Guide for Cloudflare Pages preview deployments
+- **netlify.toml** - Netlify deploy preview configuration (alternative)
+- **wrangler.toml** - Cloudflare Pages configuration (active)
 - **tsconfig.json** - TypeScript configuration
 - **.npmrc** - NPM configuration for peer dependencies
+- **static/_headers** - Netlify headers for inline PDF rendering
 
 ### Updated Files
 - **package.json** - All dependency upgrades
