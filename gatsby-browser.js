@@ -4,15 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-export const onClientEntry = () => {
-  // Redirect users after Netlify Identity authentication
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on('init', user => {
-      if (!user) {
-        window.netlifyIdentity.on('login', () => {
-          document.location.href = '/admin/'
-        })
-      }
-    })
-  }
-}
+// You can delete this file if you're not using it
