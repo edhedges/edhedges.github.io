@@ -62,8 +62,8 @@ const BlogTemplate: React.FC<PageProps<BlogPostData>> = ({ data }) => {
 export default BlogTemplate
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query BlogPostByPath($frontmatterPath: String!) {
+    markdownRemark(frontmatter: { path: { eq: $frontmatterPath } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

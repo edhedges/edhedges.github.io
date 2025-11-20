@@ -1,0 +1,48 @@
+name: Cleanup Preview Deployment
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Teardown Surge deployment
+        if: secrets.SURGE_TOKEN != ''
+        continue-on-error: true
+        run: |
+          PREVIEW_URL="eddie-hedges-pr-${{ github.event.pull_request.number }}.surge.sh"
+
+          if [ -n "${{ secrets.SURGE_TOKEN }}" ]; then
+            echo "🗑️ Tearing down preview deployment: $PREVIEW_URL"
+            npm install -g surge
+            surge teardown $PREVIEW_URL --token ${{ secrets.SURGE_TOKEN }}
+            echo "✅ Preview deployment removed"
+          else
+            echo "ℹ️ SURGE_TOKEN not configured - skipping teardown"
+          fi
+
+      - name: Comment on PR
+        if: secrets.SURGE_TOKEN != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const previewUrl = `https://eddie-hedges-pr-${{ github.event.pull_request.number }}.surge.sh`;
+            const body = `## 🗑️ Preview Deployment Cleaned Up
+
+            The preview deployment has been removed:
+            - ~~${previewUrl}~~
+
+            This preview URL is no longer available.`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });

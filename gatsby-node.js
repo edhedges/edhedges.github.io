@@ -43,7 +43,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: node.frontmatter.path,
       component: blogPostTemplate,
-      context: {},
+      context: {
+        // Pass frontmatter path to query to handle trailing slash mismatches
+        frontmatterPath: node.frontmatter.path,
+      },
     })
   })
 }
