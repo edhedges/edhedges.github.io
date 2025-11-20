@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: edhedges/edhedges.github.io
-  branch: master
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  name: git-gateway
+  branch: dev
 
 # Uncomment for local development
 # local_backend: true
