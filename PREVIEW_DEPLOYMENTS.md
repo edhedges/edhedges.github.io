@@ -42,17 +42,42 @@ Already included: `wrangler.toml`
 ## ⚡ Option 2: Automated Surge.sh via GitHub Actions
 
 **Why Surge.sh?**
-- ✅ **No account needed** - Works without SURGE_TOKEN
 - ✅ **Fully automated** - GitHub Actions handles everything
 - ✅ **PR comments** - Preview URL posted automatically
 - ✅ **Free for public sites** - No limits for open source
-- ✅ **Zero setup** - Just enable GitHub Actions
+- ✅ **Fast setup** - 2 minutes to configure
 
-### Setup (Already Done!)
+### Setup (2 minutes)
 
-The GitHub Actions workflow is **already configured** in this PR:
+**⚠️ SURGE_TOKEN Required:** Surge.sh now requires authentication for deployments.
 
-`.github/workflows/preview.yml`
+**Step 1: Get Your Surge Token**
+
+```bash
+# Install surge globally
+npm install -g surge
+
+# Create account and get token (follow prompts)
+surge token
+```
+
+This will:
+1. Prompt you to create a free Surge.sh account (email + password)
+2. Display your authentication token
+3. Copy the token for the next step
+
+**Step 2: Add Token to GitHub**
+
+1. Go to your GitHub repository
+2. Navigate to **Settings** → **Secrets and variables** → **Actions**
+3. Click **New repository secret**
+4. Name: `SURGE_TOKEN`
+5. Value: Paste the token from Step 1
+6. Click **Add secret**
+
+**Step 3: Done!**
+
+The GitHub Actions workflow is already configured in `.github/workflows/preview.yml`
 
 **How it works:**
 1. PR is opened/updated
@@ -61,26 +86,13 @@ The GitHub Actions workflow is **already configured** in this PR:
 4. Comments on PR with preview URL
 5. Updates automatically on new commits
 
-**To enable:**
-- ✅ No action needed - it's already set up!
-- 📝 Optional: Add `SURGE_TOKEN` secret for private previews
+**Workflow Configuration:**
 
-### Get a Surge Token (Optional)
-
-For private deployments or rate limit protection:
-
-```bash
-# Install surge
-npm install -g surge
-
-# Create account and get token
-surge token
-```
-
-Then add token to GitHub:
-1. Go to repo Settings → Secrets → Actions
-2. Create new secret: `SURGE_TOKEN`
-3. Paste your token
+The workflow automatically:
+- ✅ Checks for `SURGE_TOKEN` secret
+- ✅ Deploys if token exists, skips if missing
+- ✅ Posts helpful comment with artifact download link if token not configured
+- ✅ Updates PR with preview URL on successful deployment
 
 ---
 
@@ -123,8 +135,8 @@ Already included: `netlify.toml`
 | **Build Minutes** | ✅ Unlimited | ✅ Unlimited | 300/month |
 | **Bandwidth** | ✅ Unlimited | ✅ Unlimited | 100GB/month |
 | **PR Previews** | ✅ Automatic | ✅ Via Actions | ✅ Automatic |
-| **Setup Time** | 5 min | 0 min (done!) | 5 min |
-| **Account Required** | Yes (free) | No | Yes (free) |
+| **Setup Time** | 5 min | 2 min (token) | 5 min |
+| **Account Required** | Yes (free) | Yes (free) | Yes (free) |
 | **PR Comments** | ✅ Built-in | ✅ Via Actions | ✅ Built-in |
 | **Custom Domains** | ✅ Yes | ✅ Yes | ✅ Yes |
 | **HTTPS** | ✅ Automatic | ✅ Automatic | ✅ Automatic |
@@ -132,28 +144,34 @@ Already included: `netlify.toml`
 
 ---
 
-## 🚀 Quick Start: Use Surge.sh (Zero Setup)
+## 🚀 Quick Start: Use Surge.sh (2-Minute Setup)
 
-The easiest option **is already working** in this PR!
+The workflow is already configured - just add your token!
 
-1. **This PR already has preview deployment configured**
-2. **When you open/update the PR, GitHub Actions will:**
+1. **Get your Surge token:**
+   ```bash
+   npm install -g surge && surge token
+   ```
+
+2. **Add to GitHub Secrets:**
+   - Go to repo **Settings** → **Secrets and variables** → **Actions**
+   - Create secret: `SURGE_TOKEN` with your token
+
+3. **Done! When you open/update the PR, GitHub Actions will:**
    - Build your site
    - Deploy to `eddie-hedges-pr-{NUMBER}.surge.sh`
-   - Comment with preview URL
-3. **Click the URL in the PR comment to preview**
-
-No setup, no account, no configuration needed!
+   - Comment on PR with preview URL
 
 ---
 
 ## 🎯 Recommended Workflow
 
 ### For This PR (Immediate)
-Use **Surge.sh** (already configured):
-- ✅ No setup required
-- ✅ Works immediately
+Use **Surge.sh** (workflow pre-configured):
+- ✅ Minimal setup - just add token
+- ✅ Works in 2 minutes
 - ✅ Preview URL in PR comments
+- ✅ Free forever for public sites
 
 ### For Long-Term (After Merge)
 Set up **Cloudflare Pages**:
@@ -161,6 +179,7 @@ Set up **Cloudflare Pages**:
 - ✅ Unlimited everything
 - ✅ Professional CDN
 - ✅ No usage limits ever
+- ✅ Automatic PR previews
 
 ---
 
@@ -233,14 +252,23 @@ Once deployed, test these critical areas:
 
 ### Surge.sh Preview Fails
 
-**"Error: Not Found"**
+**"Project Not Found" or deployment skipped**
+- **Cause:** `SURGE_TOKEN` not configured
+- **Fix:** Add your Surge token to GitHub Secrets
+  1. Run: `npm install -g surge && surge token`
+  2. Copy the token
+  3. Add to GitHub: Settings → Secrets → Actions → New secret
+  4. Name: `SURGE_TOKEN`, Value: [your token]
+
+**"Error: Not Found" after successful deployment**
 - This is normal on first deploy
 - Wait 2-3 minutes for DNS propagation
 - Refresh the page
 
-**"Rate limited"**
-- Add `SURGE_TOKEN` secret to GitHub
-- See "Get a Surge Token" section above
+**Build artifacts available but no live preview**
+- Check GitHub Actions logs for SURGE_TOKEN message
+- Download artifacts from workflow run to test locally
+- Add SURGE_TOKEN to enable live previews
 
 ### Cloudflare Pages Build Fails
 
@@ -317,12 +345,24 @@ Preview URLs are public - share for review:
 
 You have **three free options** for preview deployments:
 
-1. **Surge.sh** ← Already configured! Zero setup!
+1. **Surge.sh** ← Workflow configured! Add token in 2 minutes!
 2. **Cloudflare Pages** ← Best long-term (unlimited)
 3. **Netlify** ← Good for CMS OAuth integration
 
-**For this PR:** Surge.sh preview will work automatically when you open the PR.
+**For this PR:**
+- Add `SURGE_TOKEN` to GitHub Secrets (see "Quick Start" above)
+- Surge.sh preview will deploy automatically on every commit
 
-**After merging:** Set up Cloudflare Pages for unlimited, production-grade previews.
+**After merging:**
+- Set up Cloudflare Pages for unlimited, production-grade previews
+- Or continue using Surge.sh if it meets your needs
 
 All three are free forever. Choose based on your needs!
+
+### SURGE_TOKEN Setup Reminder
+
+```bash
+# Quick setup (2 minutes):
+npm install -g surge && surge token
+# Copy the token, add to GitHub Secrets as SURGE_TOKEN
+```
