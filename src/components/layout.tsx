@@ -38,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
           {` `}
-          and hosted on <a href="https://pages.github.com/">GitHub Pages</a>
+          and hosted on <a href="https://pages.cloudflare.com/">Cloudflare Pages</a>
         </footer>
       </div>
     </>

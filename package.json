@@ -1,7 +1,7 @@
 {
   "name": "eddie-hedges-website",
   "private": true,
-  "description": "Personal website of Eddie Hedges powered by Gatsby and GitHub pages.",
+  "description": "Personal website of Eddie Hedges powered by Gatsby and Cloudflare Pages.",
   "version": "0.2.0",
   "author": "Eddie Hedges <eddiehedges@gmail.com>",
   "dependencies": {
@@ -22,7 +22,6 @@
   ],
   "license": "MIT",
   "scripts": {
-    "deploy": "gatsby build && gh-pages -d public -b master",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
@@ -35,7 +34,6 @@
     "@types/node": "^20.14.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "gh-pages": "^6.1.1",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4"
   },
