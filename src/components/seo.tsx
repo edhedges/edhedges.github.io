@@ -2,10 +2,14 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
+type MetaItem =
+  | { name: string; content: string }
+  | { property: string; content: string }
+
 interface SEOProps {
   description?: string
   lang?: string
-  meta?: Array<{ name?: string; property?: string; content: string }>
+  meta?: MetaItem[]
   keywords?: string[]
   title: string
 }
@@ -38,7 +42,7 @@ const SEO: React.FC<SEOProps> = ({
       }}
       title={title}
       titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-      meta={[
+      meta={([
         {
           name: `description`,
           content: metaDescription,
@@ -75,13 +79,15 @@ const SEO: React.FC<SEOProps> = ({
           name: 'theme-color',
           content: '#fff',
         },
-      ]
+      ] as MetaItem[])
         .concat(
           keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
+            ? [
+                {
+                  name: `keywords`,
+                  content: keywords.join(`, `),
+                },
+              ]
             : []
         )
         .concat(meta)}
