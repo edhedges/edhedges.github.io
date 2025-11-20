@@ -138,6 +138,7 @@ Already included: `netlify.toml`
 | **Setup Time** | 5 min | 2 min (token) | 5 min |
 | **Account Required** | Yes (free) | Yes (free) | Yes (free) |
 | **PR Comments** | ✅ Built-in | ✅ Via Actions | ✅ Built-in |
+| **Custom Headers** | ✅ Yes | ❌ No | ✅ Yes |
 | **Custom Domains** | ✅ Yes | ✅ Yes | ✅ Yes |
 | **HTTPS** | ✅ Automatic | ✅ Automatic | ✅ Automatic |
 | **CMS OAuth** | ⚠️ Manual | ⚠️ Manual | ✅ Built-in |
@@ -269,6 +270,13 @@ Once deployed, test these critical areas:
 - Check GitHub Actions logs for SURGE_TOKEN message
 - Download artifacts from workflow run to test locally
 - Add SURGE_TOKEN to enable live previews
+
+**PDF files download instead of rendering inline**
+- **Limitation:** Surge.sh doesn't support custom HTTP headers
+- **Effect:** PDFs (like Resume) will download instead of displaying in browser
+- **Workaround:** Production (GitHub Pages) serves PDFs inline correctly
+- **Alternative:** Use Netlify or Cloudflare Pages for previews (both support custom headers)
+- **Note:** This only affects preview deployments, not production
 
 ### Cloudflare Pages Build Fails
 
