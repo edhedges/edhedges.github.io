@@ -2,7 +2,7 @@
 path: '/blog/2025/05/13/poetry-haikus-jfm'
 date: '2025-05-13'
 title: 'Poetry - Haikus Part 1: January, February, March'
-tags: ['Poetry', 'Writing', 'Creativity', 'Haiku', 'Months']
+tags: ['Poetry', 'Writing', 'Creativity', 'Haiku', 'Months', 'Q1']
 ---
 
 It's been a little over four years since I last wrote a post, but recently I felt like challenging myself a bit artistically and have decided a good starting point would be to try my hand at some poetry, starting with the haiku.
