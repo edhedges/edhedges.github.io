@@ -32,6 +32,4 @@ Holidays to come
 
 ---
 
-These months hold a special place in my heart. July marks the birthdays of both my first child and myself, making it an easy pick for my favorite month. August brings the peak of summer heat, driving us to pools, lakes, and anywhere with water. And September ushers in my wife's birthday along with that first hint of autumn air, signaling the holiday season ahead.
-
-If you have any feedback, want to share your own poems, or suggest any poetry you believe is truly special, please reach out!
+Summertime is a good time and sharing a birth month with my eldest is quite special to me. This stretch holds many family birthdays and as summer peaks and closes, there's no better time to celebrate! If you have any feedback, want to share your own poems, or suggest any poetry you believe is truly special, please reach out!
