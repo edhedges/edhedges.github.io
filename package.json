@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "author": "Eddie Hedges <eddiehedges@gmail.com>",
   "dependencies": {
-    "gatsby": "^5.13.7",
+    "gatsby": "^5.16.1",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
